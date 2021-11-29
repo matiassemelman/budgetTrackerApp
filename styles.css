@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+
+.form {
+    text-align: center;
+}
+
+.formDiv {
+    padding-bottom: 20px;
+    background-color: wheat;
+    margin-right: 20px;
+}
+
+#addButton {
+    font-size: 25px;
+}
