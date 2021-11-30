@@ -9,11 +9,12 @@
   </head>
   <body>
     <h1>Budget Tracker</h1>
-    <form class="form">
+    <form class="form" id="transactionForm">
       <div class="formDiv">
-        <input id="ingreso" type="radio" name="ingreso"/>
+          Transaction Type
+        <input id="ingreso" type="radio" name="typeSelector" value="Income" />
         <label for="ingreso">Income</label>
-        <input id="expenses" type="radio" name="expenses" />
+        <input id="expenses" type="radio"  name="typeSelector" value="Expenses"/>
         <label for="expenses">Expenses</label>
       </div>
       <div class="formDiv">
@@ -27,9 +28,6 @@
         <label for="category">Category</label>
         <input type="text" id="category" name="category"
          />
-
-
-         
       </div>
       <div class="formDiv">
         <button id="addButton">Adding</button>
@@ -57,5 +55,6 @@
           </tr>
       </table>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>
