@@ -22,4 +22,5 @@ function insertRowTransactionTable(transactionFormData) {
 
     newCategoryCellRef = newTransactionRowRef.insertCell(3);
     newCategoryCellRef.textContent = transactionFormData.get('category')
+
 }
