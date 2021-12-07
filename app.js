@@ -21,6 +21,13 @@ transactionForm.addEventListener("submit", function addingTransaction(event) {
 
 });
 
+document.addEventListener('DOMContentLoaded', function renderDataWhenPageLoaded(){
+  let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData'))
+  myLocalStorageData.forEach(data => {
+    insertRowTransactionTable(data);
+  }); 
+})
+
 
 function formDataToTransactionObject(transactionFormData){
   let transactionType = transactionFormData.get('transactionType');
