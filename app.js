@@ -22,9 +22,15 @@ transactionForm.addEventListener("submit", function addingTransaction(event) {
 });
 
 document.addEventListener('DOMContentLoaded', function renderDataWhenPageLoaded(){
+  // Function to render the data of LocalStorage (Persistence data)
+
   let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData'))
+  // Initializing var with the array of transactions data
+
   myLocalStorageData.forEach(data => {
     insertRowTransactionTable(data);
+    // For each element of the array, render in the table.
+
   }); 
 })
 
