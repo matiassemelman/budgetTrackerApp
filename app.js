@@ -19,6 +19,7 @@ transactionForm.addEventListener("submit", function addingTransaction(event) {
  insertRowTransactionTable(transactionObject);
   // Inserting row and cells with the keys/values of the transactionObject
 
+  transactionForm.reset();
 });
 
 document.addEventListener('DOMContentLoaded', function renderDataWhenPageLoaded(){
@@ -32,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function renderDataWhenPageLoaded(
     // For each element of the array, render in the table.
 
   }); 
+
+
 })
 
 
