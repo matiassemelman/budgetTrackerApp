@@ -80,3 +80,4 @@ let transactionArrayJSON = JSON.stringify(myTransactionArray);
 localStorage.setItem('transactionData', transactionArrayJSON);
   // storage Item
 }
+
