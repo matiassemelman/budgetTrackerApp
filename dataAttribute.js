@@ -1,3 +1,3 @@
-let transactionTable = document.getElementById("transactionTable");
+let transactionTable = document.querySelector(".tableFormat table")
 
 

@@ -68,6 +68,13 @@ function insertRowTransactionTable(transactionObject) {
     newCategoryCellRef = newTransactionRowRef.insertCell(3);
     newCategoryCellRef.textContent = transactionObject['transactionCategory']
 
+    let newDeleteCell = newTransactionRowRef.insertCell(4);
+    let deleteButton = document.createElement("button")
+    deleteButton.innerHTML = "Delete Row";
+    deleteButton.addEventListener('click', function removeTransaction(event){
+      event.target.parentNode.parentNode.remove();
+    })
+    newDeleteCell.appendChild(deleteButton); 
 }
 
 function saveTransactionObject(transactionObject) {
