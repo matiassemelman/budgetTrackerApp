@@ -72,7 +72,9 @@ function insertRowTransactionTable(transactionObject) {
     let deleteButton = document.createElement("button")
     deleteButton.innerHTML = "Delete Row";
     deleteButton.addEventListener('click', function removeTransaction(event){
-      event.target.parentNode.parentNode.remove();
+     console.log(event.target.parentNode.parentNode)
+
+
     })
     newDeleteCell.appendChild(deleteButton); 
 }
