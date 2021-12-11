@@ -43,11 +43,13 @@ function formDataToTransactionObject(transactionFormData){
   let transactionDescription = transactionFormData.get('description');
   let transactionAmount = transactionFormData.get('amount');
   let transactionCategory = transactionFormData.get('category')
+  let transactionId = 1;
   return {
 "transactionType" : transactionType ,
 "transactionDescription" : transactionDescription ,
 "transactionAmount" : transactionAmount ,
 "transactionCategory" : transactionCategory,
+"transactionId" : transactionId
   }
 }
 
@@ -56,23 +58,27 @@ function insertRowTransactionTable(transactionObject) {
 
     let newTransactionRowRef = transactionTableRef.insertRow(-1);
 
-    let newTypeCellRef = newTransactionRowRef.insertCell(0);
+    let newIdCellRef = newTransactionRowRef.insertCell(0);
+    newIdCellRef.textContent = transactionObject['transactionId'];
+
+    let newTypeCellRef = newTransactionRowRef.insertCell(1);
     newTypeCellRef.textContent = transactionObject['transactionType'];
 
-    newDescriptionCellRef = newTransactionRowRef.insertCell(1);
+    newDescriptionCellRef = newTransactionRowRef.insertCell(2);
     newDescriptionCellRef.textContent = transactionObject['transactionDescription'];
 
-    newAmountCellRef = newTransactionRowRef.insertCell(2);
+    newAmountCellRef = newTransactionRowRef.insertCell(3);
     newAmountCellRef.textContent = transactionObject['transactionAmount']
 
-    newCategoryCellRef = newTransactionRowRef.insertCell(3);
+    newCategoryCellRef = newTransactionRowRef.insertCell(4);
     newCategoryCellRef.textContent = transactionObject['transactionCategory']
 
-    let newDeleteCell = newTransactionRowRef.insertCell(4);
+    let newDeleteCell = newTransactionRowRef.insertCell(5);
     let deleteButton = document.createElement("button")
     deleteButton.innerHTML = "Delete Row";
     deleteButton.addEventListener('click', function removeTransaction(event){
-     console.log(event.target.parentNode.parentNode)
+      console.log(event)
+     
 
 
     })
