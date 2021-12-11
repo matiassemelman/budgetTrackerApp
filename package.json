@@ -1,0 +1,16 @@
+{
+  "name" : "budget-tracker-app",
+  "author": "Matias Semelman",
+  "description": "App to track your personal finances",
+  "dependencies": {
+
+  },
+  "main": "./server/server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matiassemelman/budgetTrackerApp"
+  }
+}
