@@ -6,7 +6,7 @@ let transactionForm = document.getElementById("transactionForm");
 document.addEventListener('DOMContentLoaded', function renderDataWhenPageLoaded(){
   // Function to render on Page Load the data of LocalStorage (Persistence data)
 
-  let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData')) || [];
+  let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData'));
   // Initializing var with the array of transactions data
   
   myLocalStorageData.forEach(data => {
@@ -80,17 +80,35 @@ function insertRowTransactionTable(transactionObject) {
     newCategoryCellRef = newTransactionRowRef.insertCell(4);
     newCategoryCellRef.textContent = transactionObject['transactionCategory']
 
+    newTransactionRowRef.setAttribute('data-transaction-id', transactionObject["transactionId"])
+
+
+// ==================== DELETE BUTTON OF TABLE ======================
     let newDeleteCell = newTransactionRowRef.insertCell(5);
     let deleteButton = document.createElement("button")
+
     deleteButton.innerHTML = "Delete Row";
     deleteButton.addEventListener('click', function removeTransaction(event){
-      event.target.parentNode.parentNode.remove();
-     
+      let transactionRow = event.target.parentNode.parentNode
+     let transactionId = transactionRow.getAttribute("data-transaction-id");
+      transactionRow.remove();      
+     deleteTransactionObject(transactionId)
 
 
     })
     newDeleteCell.appendChild(deleteButton); 
 }
+
+function deleteTransactionObject(transactionId) {
+  let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData'));
+  let transactionIndexInArray = myLocalStorageData.findIndex(element => element.transactionId === transactionId);
+  myLocalStorageData.splice(transactionIndexInArray, 1)
+  let transactionArrayJSON = JSON.stringify(myLocalStorageData);
+  // convert the array to JSON to store it in localStorage
+localStorage.setItem('transactionData', transactionArrayJSON);
+  // storage Item
+}
+
 
 function saveTransactionObject(transactionObject) {
   let myTransactionArray = JSON.parse(localStorage.getItem("transactionData")) || [];
