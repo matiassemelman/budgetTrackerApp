@@ -6,9 +6,9 @@ let transactionForm = document.getElementById("transactionForm");
 document.addEventListener('DOMContentLoaded', function renderDataWhenPageLoaded(){
   // Function to render on Page Load the data of LocalStorage (Persistence data)
 
-  let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData'))
+  let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData')) || [];
   // Initializing var with the array of transactions data
-
+  
   myLocalStorageData.forEach(data => {
     insertRowTransactionTable(data);
     // For each element of the array, render in the table.
@@ -37,13 +37,20 @@ transactionForm.addEventListener("submit", function addingTransaction(event) {
 });
 
 
+function getNewTransactionId() {
+  let lastTransactionId = localStorage.getItem('lastTransactionId') || "0";
+  let newTransactionId = JSON.parse(lastTransactionId) + 1;
+  localStorage.setItem('lastTransactionId', JSON.stringify(newTransactionId));
+  return newTransactionId;
+}
+
 function formDataToTransactionObject(transactionFormData){
   let transactionType = transactionFormData.get('transactionType');
   let transactionDescription = transactionFormData.get('description');
   let transactionAmount = transactionFormData.get('amount');
-  let transactionCategory = transactionFormData.get('category')
-  let transactionsLength = JSON.parse(localStorage.getItem("transactionData")).length
-  let transactionId = transactionsLength + 1;
+  let transactionCategory = transactionFormData.get('category');
+  let transactionId = getNewTransactionId();
+
   return {
 "transactionType" : transactionType ,
 "transactionDescription" : transactionDescription ,
