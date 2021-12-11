@@ -2,8 +2,22 @@ let transactionForm = document.getElementById("transactionForm");
 // Selecting form
 
 
+
+document.addEventListener('DOMContentLoaded', function renderDataWhenPageLoaded(){
+  // Function to render on Page Load the data of LocalStorage (Persistence data)
+
+  let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData'))
+  // Initializing var with the array of transactions data
+
+  myLocalStorageData.forEach(data => {
+    insertRowTransactionTable(data);
+    // For each element of the array, render in the table.
+
+  }); 
+})
+
 transactionForm.addEventListener("submit", function addingTransaction(event) {
-  // adding event listener
+  // adding event listener to submit button
   event.preventDefault();
   // preventing page reload on submit
   
@@ -22,28 +36,14 @@ transactionForm.addEventListener("submit", function addingTransaction(event) {
   transactionForm.reset();
 });
 
-document.addEventListener('DOMContentLoaded', function renderDataWhenPageLoaded(){
-  // Function to render the data of LocalStorage (Persistence data)
-
-  let myLocalStorageData = JSON.parse(localStorage.getItem('transactionData'))
-  // Initializing var with the array of transactions data
-
-  myLocalStorageData.forEach(data => {
-    insertRowTransactionTable(data);
-    // For each element of the array, render in the table.
-
-  }); 
-
-
-})
-
 
 function formDataToTransactionObject(transactionFormData){
   let transactionType = transactionFormData.get('transactionType');
   let transactionDescription = transactionFormData.get('description');
   let transactionAmount = transactionFormData.get('amount');
   let transactionCategory = transactionFormData.get('category')
-  let transactionId = 1;
+  let transactionsLength = JSON.parse(localStorage.getItem("transactionData")).length
+  let transactionId = transactionsLength + 1;
   return {
 "transactionType" : transactionType ,
 "transactionDescription" : transactionDescription ,
@@ -77,7 +77,7 @@ function insertRowTransactionTable(transactionObject) {
     let deleteButton = document.createElement("button")
     deleteButton.innerHTML = "Delete Row";
     deleteButton.addEventListener('click', function removeTransaction(event){
-      console.log(event)
+      event.target.parentNode.parentNode.remove();
      
 
 
