@@ -20,20 +20,25 @@ transactionForm.addEventListener("submit", function addingTransaction(event) {
   // adding event listener to submit button
   event.preventDefault();
   // preventing page reload on submit
+  if(transactionForm.amount.value > 0) {
+    let transactionFormData = new FormData(transactionForm);
+    // convert the form data into a FormData constructor.
+    
+    let transactionObject = formDataToTransactionObject(transactionFormData)
+    // initializing var with object created by the function in line 21, which receives the form data converted.
   
-  let transactionFormData = new FormData(transactionForm);
-  // convert the form data into a FormData constructor.
+    saveTransactionObject(transactionObject);
+    // storing the object into the localStorage
   
-  let transactionObject = formDataToTransactionObject(transactionFormData)
-  // initializing var with object created by the function in line 21, which receives the form data converted.
-
-  saveTransactionObject(transactionObject);
-  // storing the object into the localStorage
-
- insertRowTransactionTable(transactionObject);
-  // Inserting row and cells with the keys/values of the transactionObject
-
-  transactionForm.reset();
+   insertRowTransactionTable(transactionObject);
+    // Inserting row and cells with the keys/values of the transactionObject
+  
+    transactionForm.reset();
+  } else {
+    alert("Amount field only accepts numbers greater than 0")
+  }
+  
+ 
 });
 
 
