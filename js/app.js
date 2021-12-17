@@ -66,7 +66,7 @@ function formDataToTransactionObject(transactionFormData){
 }
 
 function insertRowTransactionTable(transactionObject) {
-    let transactionTableRef = document.getElementById("transactionTable");
+    let transactionTableRef = document.getElementById("responsive-table");
 
     let newTransactionRowRef = transactionTableRef.insertRow(-1);
 

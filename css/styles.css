@@ -10,23 +10,8 @@ h1 {
   text-align: center;
 }
 
-.formDiv {
-  padding-bottom: 20px;
-  background-color: wheat;
-  margin-right: 20px;
-}
 
 #addButton {
   font-size: 25px;
 }
 
-td,
-th {
-  padding: 10px;
-  border: 1px solid red;
-  text-align: center;
-}
-
-.tableFormat table {
-    margin: 10px auto
-}

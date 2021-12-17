@@ -4,68 +4,82 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
     <link rel="stylesheet" href="./css/styles.css" />
     <title>My Budget Tracker</title>
   </head>
   <body>
     <h1>Budget Tracker</h1>
+    <div class="row">
+      <div class="col l5 offset-l1 s12">
+ 
+        <div class="tableFormat">
+          History
+          <table id="responsive-table">
+            <tr>
+              <th>ID</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Eliminar</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col l5 s12">
+        <div class="col s12">
     <form class="form" id="transactionForm">
       <div class="formDiv">
         Transaction Type
-        <input
-          id="ingreso"
-          type="radio"
-          name="transactionType"
-          value="Income"
-          
-        />
-        <label for="ingreso">Income</label>
-        <input
-          id="expenses"
-          type="radio"
-          name="transactionType"
-          value="Expenses"
-          checked
-        />
-        <label for="expenses">Expenses</label>
-      </div>
-      <div class="formDiv">
+        <p>
+          <label>
+            <input class="with-gap" name="transactionType" type="radio" />
+            <span>Income</span>
+          </label>
+          <label>
+            <input class="with-gap" name="transactionType" type="radio" checked />
+            <span>Expense</span>
+       </div>
+       <div class="input-field col s12">
+        <input id="description" type="text" class="validate" name="description">
         <label for="description">Description</label>
-        <input type="text" id="description" name="description"/>
       </div>
-      <div class="formDiv">
+      
+      <div class="input-field col s12">
+        <input id="amount" name="amount" type="text" class="validate">
         <label for="amount">Amount</label>
-        <input type="number" id="amount" name="amount" />
       </div>
       <div class="formDiv">
-        <select name="category" id="category">
+        <select class="browser-default" name="category" id="category">
           <option value="Groceries">Groceries</option>
+          <option value="Rent">Rent</option>
           <option value="Eating">Eating</option>
           <option value="Clothing">Clothing</option>
           <option value="Entertainment">Entertainment</option>
           <option value="Travel">Travel</option>
           <option value="Hobbies">Hobbies</option>
           <option value="Gifts">Gifts</option>
-          </select>
+        </select>
       </div>
       <div class="formDiv">
-        <button id="addButton">Adding</button>
+        
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+  </button>
       </div>
     </form>
-    
-    <div class="tableFormat">
-      History
-      <table id="transactionTable">
-        <tr>
-          <th>ID</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Amount</th>
-          <th>Category</th>
-          <th>Eliminar</th>
-        </tr>
-      </table>
-    </div>
+  </div>
+  </div>
+
+  </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script src="./js/app.js"></script>
   </body>
 </html>
