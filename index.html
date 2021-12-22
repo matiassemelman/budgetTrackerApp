@@ -10,16 +10,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/styles.css" />
     <title>My Budget Tracker</title>
   </head>
   <body>
     <h1>Budget Tracker</h1>
     <div class="row">
-      <div class="col l5 offset-l1 s12">
+      <div class="col l5 offset-l1 s12 m7">
  
         <div class="tableFormat">
-          History
+          <h1>History</h1>
           <table id="responsive-table">
             <tr>
               <th>ID</th>
@@ -32,12 +34,14 @@
           </table>
         </div>
       </div>
-      <div class="col l5 s12">
+      <div class="col l5 s12 m5">
         <div class="col s12">
     <form class="form" id="transactionForm">
+      <h1>Add Register</h1>
       <div class="formDiv">
-        Transaction Type
-        <p>
+        
+  
+          <span>Transaction</span> 
           <label>
             <input class="with-gap" name="transactionType" type="radio" />
             <span>Income</span>
@@ -70,6 +74,7 @@
       <div class="formDiv">
         
   <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="small material-icons">add</i>
   </button>
       </div>
     </form>

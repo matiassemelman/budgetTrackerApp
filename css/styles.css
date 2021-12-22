@@ -8,10 +8,13 @@ h1 {
 
 .form {
   text-align: center;
+  margin-top: 50px;
 }
 
-
-#addButton {
-  font-size: 25px;
+.btn {
+  margin-top: 20px;
 }
 
+.small.material-icons{
+ font-size: 15px;
+}
